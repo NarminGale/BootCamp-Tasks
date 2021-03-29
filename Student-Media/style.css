@@ -6,13 +6,14 @@ body {
   font-size: 1.12rem;
 }
 .container {
+  padding: 0 8rem;
   margin-top: 3rem;
   display: flex;
   justify-content: space-evenly;
 }
 .div {
   padding: 1rem 1.5rem;
-  flex-basis: 33%;
+  flex-basis: 42%;
   background: #f4ecd6;
 }
 p {
@@ -20,6 +21,8 @@ p {
 }
 @media screen and (max-width: 992px) {
   .container {
+    padding: 0;
+
     justify-content: space-between;
   }
   .div {
