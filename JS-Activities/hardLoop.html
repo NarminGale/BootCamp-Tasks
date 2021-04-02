@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hard Loop</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      let myFarm = ['chickens', 'pigs', 'cows', 'horses', 'ostriches']
+      for (let i = 0; i < myFarm.length; i++) {
+        if (myFarm[i][0] === 'c' || myFarm[i][0] === 'o') {
+          alert(`${myFarm[i]} starts with 'c' or 'o'`)
+        } else {
+          alert(`${myFarm[i]} need to start with 'c' or 'o'!`)
+        }
+      }
+    </script>
+  </body>
+</html>
