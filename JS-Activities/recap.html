@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Recap Conditionals and Loops</title>
+  </head>
+  <body>
+    <h1>Open the console to see the magic!</h1>
+
+    <script>
+      // Rows of Students
+      var studentsRow1 = [
+        'Jennifer',
+        'Jonathan ',
+        'Robinson',
+        'Ana',
+        'Musab Khalif',
+        'Javier Ibanez',
+      ]
+      var studentsRow2 = ['Carlo', 'Rhonda', 'Jose', 'Jordan', 'Max', 'Raymond']
+      var studentsRow3 = ['Elena', 'Sasha', 'Lucas', 'Ricky', 'Christopher ']
+
+      // Entire Class
+      var entireClass = [studentsRow1, studentsRow2, studentsRow3]
+
+      ;[
+        [
+          'Jennifer',
+          'Jonathan ',
+          'Robinson',
+          'Ana',
+          'Musab Khalif',
+          'Javier Ibanez',
+        ],
+        ['Carlo', 'Rhonda', 'Jose', 'Jordan', 'Max', 'Raymond'],
+        ['Elena', 'Sasha', 'Lucas', 'Ricky', 'Christopher '],
+      ]
+      // How do we print out every single student in Row 1?
+      for (let i = 0; i < entireClass[0].length; i++) {
+        console.log(entireClass[0][i])
+      }
+      console.log('~~~~~~~~~~~~')
+
+      // How do we print out every student in Row 2 whose first name begins with J?
+      for (let i = 0; i < entireClass[1].length; i++) {
+        if (entireClass[1][i][0] === 'J') {
+          console.log(entireClass[1][i])
+        }
+      }
+    </script>
+  </body>
+</html>
