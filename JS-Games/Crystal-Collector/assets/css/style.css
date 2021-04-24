@@ -1,0 +1,31 @@
+.jumbotron {
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  background-color: #002a22 !important;
+}
+.jumbotron h1 {
+  font-size: 4rem;
+  color: #f4ecd6;
+}
+.panel-heading {
+  border-color: #002a22 !important;
+  background-color: #795663 !important;
+}
+.panel-title {
+  color: #f4ecd6;
+  font-weight: bold;
+}
+.panel-primary {
+  border-color: #002a22;
+}
+.panel-body img {
+  cursor: pointer;
+  margin: 0 1rem;
+  transition: all 0.15s linear;
+}
+.panel-body img:hover {
+  transform: scale(1.2);
+}
+.panel-body h3 {
+  color: #002a22;
+}
