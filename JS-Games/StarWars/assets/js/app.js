@@ -30,6 +30,8 @@ var characters = {
   },
 }
 
+let myChars = []
+
 $(document).ready(function () {
   for (let i in characters) {
     let character = $('<div>').addClass('character')
@@ -44,5 +46,45 @@ $(document).ready(function () {
 
     character.append(characterName).append(image).append(characterHealth)
     $('#characters').append(character)
+    myChars.push(character)
   }
+
+  // selecting your character
+  $('#characters').click(function (e) {
+    let parentEl = $(e.target).parent()
+    let dataName = parentEl.data('name')
+    if (parentEl.attr('class') === 'character') {
+      $('#selected-character').append(parentEl)
+      $('#characters-section').html('')
+    }
+    for (i of myChars) {
+      if (i.data('name') === dataName) {
+        myChars = jQuery.grep(myChars, function (value) {
+          return value != i
+        })
+      }
+    }
+    for (i of myChars) {
+      $('.enemies').append(i)
+    }
+  })
+
+  // selecting enemies
+  $('.enemies').click(function (e) {
+    let parentEl = $(e.target).parent()
+    let dataName = parentEl.data('name')
+    if (parentEl.attr('class') === 'character') {
+      $('#action').append(parentEl)
+    }
+    for (i of myChars) {
+      if (i.data('name') === dataName) {
+        myChars = jQuery.grep(myChars, function (value) {
+          return value != i
+        })
+      }
+    }
+    for (i of myChars) {
+      $('.enemies').append(i)
+    }
+  })
 })
