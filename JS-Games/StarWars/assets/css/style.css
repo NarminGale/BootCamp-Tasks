@@ -76,3 +76,27 @@ body {
 #attack-button:hover {
   border: 1px solid red;
 }
+
+.ddd {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.enemies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+#fight-section {
+  text-align: center;
+}
+
+#selected-character-section,
+#action {
+  flex-basis: 20%;
+}
+
+#available-to-attack-section {
+  flex-basis: 50%;
+}
