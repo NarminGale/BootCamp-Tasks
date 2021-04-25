@@ -61,3 +61,18 @@ body {
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+
+#attack-button {
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  color: red;
+  font-weight: bold;
+  background: black;
+  border: 1px solid black;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: all 0.15s linear;
+}
+#attack-button:hover {
+  border: 1px solid red;
+}
