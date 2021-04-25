@@ -3,12 +3,34 @@ function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
+// getting random target
 function getRandomTarget() {
   $('#target-score').val(getRandomNumber(20, 120))
   var targetScore = parseInt($('#target-score').val())
   $('#target-score').text(targetScore)
+  return targetScore
 }
-getRandomTarget()
+
+// checking score
+function checkinScore() {
+  if (score === randomTarget) {
+    win++
+    $('#win-count').text(win)
+    alert('You win')
+    score = 0
+    yourScore.text(score)
+    randomTarget = getRandomTarget()
+  } else if (score > randomTarget) {
+    loss++
+    $('#loss-count').text(loss)
+    alert('You lost')
+    score = 0
+    yourScore.text(score)
+    randomTarget = getRandomTarget()
+  }
+}
+
+let randomTarget = getRandomTarget()
 
 let blue = $('#blue')
 let green = $('#green')
@@ -27,8 +49,6 @@ yellow.val(getRandomNumber(1, 12))
 blue.click(function () {
   score = score + parseInt(blue.val())
   yourScore.text(score)
-  console.log(blue.val())
-
   //   checking target score and your score
   checkinScore()
 })
@@ -36,32 +56,17 @@ blue.click(function () {
 green.click(function () {
   score = score + parseInt(green.val())
   yourScore.text(score)
-  console.log(green.val())
   checkinScore()
 })
 
 red.click(function () {
   score = score + parseInt(red.val())
   yourScore.text(score)
-  console.log(red.val())
   checkinScore()
 })
 
 yellow.click(function () {
   score = score + parseInt(yellow.val())
   yourScore.text(score)
-  console.log(yellow.val())
   checkinScore()
 })
-
-function checkinScore() {
-  if (score === targetScore) {
-    alert('You win')
-    win++
-    $('#win-count').text(win)
-  } else if (score > targetScore) {
-    alert('You lost')
-    loss++
-    $('#loss-count').text(loss)
-  }
-}
