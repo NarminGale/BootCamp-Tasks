@@ -95,6 +95,7 @@ body {
 #selected-character-section,
 #action {
   flex-basis: 20%;
+  text-align: center;
 }
 
 #available-to-attack-section {
