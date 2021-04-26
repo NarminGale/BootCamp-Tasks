@@ -29,6 +29,7 @@ body {
   background: rgba(0, 0, 0, 0.658);
   margin-bottom: 1.5rem;
   padding: 0.5rem 1rem;
+  width: 100% !important;
 }
 .character {
   width: 200px;
@@ -93,9 +94,13 @@ body {
 }
 
 #selected-character-section,
-#action {
+.character-section {
   flex-basis: 20%;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #available-to-attack-section {
