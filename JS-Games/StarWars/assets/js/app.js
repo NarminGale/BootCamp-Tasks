@@ -56,6 +56,8 @@ $(document).ready(function () {
     if (parentEl.attr('class') === 'character') {
       $('#selected-character').append(parentEl)
       $('#characters-section').html('')
+    } else {
+      return false
     }
     for (i of myChars) {
       if (i.data('name') === dataName) {
@@ -70,7 +72,7 @@ $(document).ready(function () {
   })
 
   // selecting enemies
-  $('.enemies').click(function (e) {
+  $('.enemies').one('click', function (e) {
     let parentEl = $(e.target).parent()
     let dataName = parentEl.data('name')
     if (parentEl.attr('class') === 'character') {
