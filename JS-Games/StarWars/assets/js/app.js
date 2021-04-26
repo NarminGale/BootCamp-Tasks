@@ -76,7 +76,7 @@ $(document).ready(function () {
     let parentEl = $(e.target).parent()
     let dataName = parentEl.data('name')
     if (parentEl.attr('class') === 'character') {
-      $('#action').append(parentEl)
+      $('#defender').append(parentEl)
     }
     for (i of myChars) {
       if (i.data('name') === dataName) {
@@ -88,5 +88,32 @@ $(document).ready(function () {
     for (i of myChars) {
       $('.enemies').append(i)
     }
+  })
+
+  // attacking calc
+  $('#attack-button').click(function check() {
+    let charKey = $(
+      '#selected-character-section #selected-character .character'
+    ).data('name')
+    let defenderKey = $(
+      '#action .character-section #defender .character .character-name'
+    ).text()
+    let charHealth = characters[charKey].health
+    let charAttack = characters[charKey].attack
+
+    let defHealth = characters[defenderKey].health
+    let defAttack = characters[defenderKey].enemyAttackBack
+
+    charHealth = charHealth - defAttack
+    defHealth = defHealth - charAttack
+    console.log(charHealth)
+    console.log(defHealth)
+
+    $(
+      '#selected-character-section #selected-character .character .character-health'
+    ).html(charHealth)
+    $('#action .character-section #defender .character .character-health').html(
+      defHealth
+    )
   })
 })
