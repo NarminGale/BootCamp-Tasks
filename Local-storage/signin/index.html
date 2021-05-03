@@ -109,7 +109,18 @@
         $('#email-display').text(emailInput)
         $('#age-display').text(ageInput)
         $('#comment-display').text(commentInput)
+
+        localStorage.clear()
+
+        localStorage.setItem('name', nameInput)
+        localStorage.setItem('email', emailInput)
+        localStorage.setItem('age', ageInput)
+        localStorage.setItem('comment', commentInput)
       })
+      $('#name-display').text(localStorage.getItem('name'))
+      $('#email-display').text(localStorage.getItem('email'))
+      $('#age-display').text(localStorage.getItem('age'))
+      $('#comment-display').text(localStorage.getItem('comment'))
     </script>
   </body>
 </html>
