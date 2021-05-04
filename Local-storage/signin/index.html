@@ -116,6 +116,11 @@
         localStorage.setItem('email', emailInput)
         localStorage.setItem('age', ageInput)
         localStorage.setItem('comment', commentInput)
+
+        document.cookie = 'name=' + nameInput
+        document.cookie = 'email=' + emailInput
+        document.cookie = 'age=' + ageInput
+        document.cookie = 'comment=' + commentInput
       })
       $('#name-display').text(localStorage.getItem('name'))
       $('#email-display').text(localStorage.getItem('email'))
