@@ -81,51 +81,23 @@
       </div>
     </div>
 
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-database.js"></script>
 
-    <!-- Script -->
     <script>
-      // ========================================= START CODING BELOW!!
-
-      // Capture Button Click
-      $('#add-user').on('click', function (event) {
-        event.preventDefault()
-
-        // Capture User Inputs and store them into variables
-        let nameInput = $('#name-input').val()
-        let emailInput = $('#email-input').val()
-        let ageInput = $('#age-input').val()
-        let commentInput = $('#comment-input').val()
-
-        // Console log each of the user inputs to confirm we are receiving them correctly
-
-        console.log(nameInput)
-        console.log(emailInput)
-        console.log(ageInput)
-        console.log(commentInput)
-        // Output all of the new information into the relevant HTML sections
-        $('#name-display').text(nameInput)
-        $('#email-display').text(emailInput)
-        $('#age-display').text(ageInput)
-        $('#comment-display').text(commentInput)
-
-        localStorage.clear()
-
-        localStorage.setItem('name', nameInput)
-        localStorage.setItem('email', emailInput)
-        localStorage.setItem('age', ageInput)
-        localStorage.setItem('comment', commentInput)
-
-        document.cookie = 'name=' + nameInput
-        document.cookie = 'email=' + emailInput
-        document.cookie = 'age=' + ageInput
-        document.cookie = 'comment=' + commentInput
-      })
-      $('#name-display').text(localStorage.getItem('name'))
-      $('#email-display').text(localStorage.getItem('email'))
-      $('#age-display').text(localStorage.getItem('age'))
-      $('#comment-display').text(localStorage.getItem('comment'))
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: 'AIzaSyBMu9UeWpdVDJDp41yBrXzyMGjHyT3D_os',
+        authDomain: 'sign-in-bee51.firebaseapp.com',
+        projectId: 'sign-in-bee51',
+        storageBucket: 'sign-in-bee51.appspot.com',
+        messagingSenderId: '330943877461',
+        appId: '1:330943877461:web:91e18bce30d90dc6a1dfdc',
+      }
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig)
     </script>
+    <script src="./app.js"></script>
   </body>
 </html>
