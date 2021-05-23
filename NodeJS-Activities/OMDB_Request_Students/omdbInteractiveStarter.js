@@ -7,8 +7,6 @@
 // Take a move with multiple words (ex: Forrest Gump) as a Node argument and retrieve the year it was created.
 // ---------------------------------------------------------------------------------------------------------
 
-// Include the request npm package (Don't forget to run "npm install request" in this folder first!)
-// ...
 const request = require('request')
 
 // Grab or assemble the movie name and store it in a variable called "movieName"
