@@ -26,6 +26,8 @@ import TextField from '@material-ui/core/TextField'
 import Paper from '@material-ui/core/Paper'
 import { Height } from '@material-ui/icons'
 
+import { CopyToClipboard } from 'react-copy-to-clipboard'
+
 const drawerWidth = 300
 
 const useStyles = makeStyles((theme) => ({
@@ -99,10 +101,41 @@ export default function PersistentDrawerLeft() {
   }
 
   const [color, setColor] = React.useState('#111')
-
   const [colorName, setColorName] = React.useState('')
+  const [hasColorNameError, setHasColorNameError] = React.useState(false)
+  const [colorNameError, setColorNameError] = React.useState('')
+  const [colorNameLabel, setColorNameLabel] = React.useState('Color Name')
+  const [colors, setColors] = React.useState([])
 
-  console.log(colorName)
+  // console.log(colorName)
+
+  const btnOnClick = () => {
+    if (!colorName.trim()) {
+      setColorNameError('Color Name is empty')
+      setHasColorNameError(true)
+    } else {
+      var hasColor = false
+      colors.forEach((c) => {
+        if (c.color === color) {
+          hasColor = true
+        }
+      })
+      if (hasColor) {
+        setColorNameError('Color Name exists')
+        setHasColorNameError(true)
+        return
+      }
+      setColorNameError('')
+      setHasColorNameError(false)
+      var c = [...colors]
+      c.push({
+        color,
+        colorName,
+      })
+      setColors(c)
+      setColorName('')
+    }
+  }
 
   return (
     <div className={classes.root}>
@@ -152,14 +185,17 @@ export default function PersistentDrawerLeft() {
         />
         <TextField
           id="outlined-basic"
-          label="Color Name"
           variant="outlined"
           type="text"
-          value={colorName}
           className="text-field"
+          helperText={colorNameError}
+          label={'Color Name'}
+          error={hasColorNameError}
+          value={colorName}
           onChange={(e) => setColorName(e.target.value)}
         />
         <button
+          onClick={btnOnClick}
           type="button"
           className="add-button"
           style={{ backgroundColor: color }}>
@@ -171,7 +207,21 @@ export default function PersistentDrawerLeft() {
           [classes.contentShift]: open,
         })}>
         <div className={classes.drawerHeader} />
-        <Paper variant="outlined" className="paper-div" />
+
+        <section className="colors-section">
+          {colors.map((color) => {
+            return (
+              <CopyToClipboard text={color.color} key={`color-${color.color}`}>
+                <Paper
+                  className="paper-div"
+                  key={`color-${color.color}`}
+                  style={{ backgroundColor: color.color }}>
+                  {color.colorName}
+                </Paper>
+              </CopyToClipboard>
+            )
+          })}
+        </section>
       </main>
     </div>
   )

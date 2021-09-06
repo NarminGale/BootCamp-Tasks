@@ -39,8 +39,17 @@
   width: 240px;
 }
 
+.colors-section {
+  display: flex;
+}
+
 .paper-div {
-  background: yellow !important;
   height: 180px;
   width: 200px;
+  font-size: 1.4rem;
+  text-align: center;
+  padding-top: 4.4rem;
+  text-transform: capitalize;
+  font-weight: 400;
+  letter-spacing: 0.14rem;
 }
