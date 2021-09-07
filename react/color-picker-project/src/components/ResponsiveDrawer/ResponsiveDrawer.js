@@ -106,7 +106,7 @@ export default function PersistentDrawerLeft() {
   const [colorNameError, setColorNameError] = React.useState('')
   const [colorNameLabel, setColorNameLabel] = React.useState('Color Name')
   const [colors, setColors] = React.useState([])
-
+  const [copied, setCopied] = React.useState(null)
   // console.log(colorName)
 
   const btnOnClick = () => {
@@ -135,6 +135,22 @@ export default function PersistentDrawerLeft() {
       setColors(c)
       setColorName('')
     }
+  }
+
+  const onCopyCN = (copiedText) => {
+    setCopied(copiedText)
+
+    setTimeout(() => {
+      setCopied(null)
+    }, 1500)
+  }
+
+  if (copied) {
+    return (
+      <div className="copied-text" style={{ backgroundColor: copied }}>
+        Copied !!!
+      </div>
+    )
   }
 
   return (
@@ -211,7 +227,10 @@ export default function PersistentDrawerLeft() {
         <section className="colors-section">
           {colors.map((color) => {
             return (
-              <CopyToClipboard text={color.color} key={`color-${color.color}`}>
+              <CopyToClipboard
+                text={color.color}
+                key={`color-${color.color}`}
+                onCopy={onCopyCN}>
                 <Paper
                   className="paper-div"
                   key={`color-${color.color}`}
